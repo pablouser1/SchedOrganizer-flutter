@@ -44,7 +44,11 @@ class Api {
 
   Future<Uri> _getBaseUrl<T>(String path) async {
     final baseUrl = "${await config.getBaseUrl()}/api/v1$path";
-    final url = Uri.parse(baseUrl);
-    return url;
+    try {
+      final url = Uri.parse(baseUrl);
+      return url;
+    } on FormatException {
+      throw Exception("Invalid URL, maybe you haven't set your base URL?");
+    }
   }
 }
