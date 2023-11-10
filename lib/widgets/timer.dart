@@ -41,12 +41,12 @@ class _TimerWidgetState extends State<TimerWidget> {
       Duration diff = finishTime.difference(nowTime);
 
       if (diff.isNegative) {
-        // It's over, stops program
+        // It's over, stop timer
         res = "Finished";
         timer.cancel();
       } else {
         // Still happening
-        res = "${_printDuration(diff)} passed";
+        res = "${_printDuration(diff)} remaining";
       }
     } else {
       // Calc time remaining to start
