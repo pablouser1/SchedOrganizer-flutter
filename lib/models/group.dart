@@ -16,4 +16,9 @@ class Group {
       group: json['group'],
     );
   }
+
+  @override
+  String toString() {
+    return "$yearº $group";
+  }
 }

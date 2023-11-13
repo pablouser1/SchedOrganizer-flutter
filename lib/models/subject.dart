@@ -4,6 +4,7 @@ import 'package:schedorganizer/models/group.dart';
 class Subject {
   final int id;
   final String name;
+  final String shortName;
   final String? url;
   final Group group;
   final List<Room> rooms;
@@ -11,6 +12,7 @@ class Subject {
   Subject(
       {required this.id,
       required this.name,
+      required this.shortName,
       this.url,
       required this.group,
       required this.rooms});
@@ -21,6 +23,7 @@ class Subject {
     return Subject(
       id: json['id'],
       name: json['name'],
+      shortName: json['short_name'],
       url: json['url'],
       group: Group.fromJson(json['group']),
       rooms: rooms.toList(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UI {
   static Widget card(Widget title, Widget subtitle, Icon icon,
@@ -43,5 +44,12 @@ class UI {
         );
       },
     );
+  }
+
+  static Future<void> openUrl(String url) async {
+    Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }

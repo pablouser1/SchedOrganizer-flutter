@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:schedorganizer/helpers/nav.dart';
 import 'package:schedorganizer/helpers/ui.dart';
 import 'package:schedorganizer/models/schedule.dart';
+import 'package:schedorganizer/pages/subject.dart';
 import 'package:schedorganizer/widgets/timer.dart';
 
 class SchedulesWidget extends StatelessWidget {
@@ -24,6 +26,7 @@ class SchedulesWidget extends StatelessWidget {
           trailing: i == 0 && isTimer
               ? TimerWidget(timezone: schedule.timezone)
               : null,
+          tap: () => Nav.push(context, SubjectPage(id: schedule.subject.id)),
         );
       },
     );

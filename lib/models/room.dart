@@ -16,4 +16,9 @@ class Room {
       description: json['description'],
     );
   }
+
+  @override
+  String toString() {
+    return "$location ($description)";
+  }
 }
