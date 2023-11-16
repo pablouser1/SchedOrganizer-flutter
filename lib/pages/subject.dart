@@ -4,7 +4,6 @@ import 'package:schedorganizer/helpers/ui.dart';
 import 'package:schedorganizer/models/apires.dart';
 import 'package:schedorganizer/models/subject.dart';
 import 'package:schedorganizer/widgets/loading.dart';
-import 'package:schedorganizer/widgets/texticon.dart';
 
 class SubjectPage extends StatefulWidget {
   const SubjectPage({super.key, required this.id});
@@ -79,13 +78,10 @@ class _SubjectPageState extends State<SubjectPage> {
                         itemCount: data.rooms.length,
                         itemBuilder: (context, index) {
                           final room = data.rooms[index];
-                          return Center(
-                            child: TextIconWidget(
-                              text: TextSpan(
-                                text: room.toString(),
-                              ),
-                              icon: const Icon(Icons.room),
-                            ),
+                          return UI.card(
+                            Text("Room ${room.location}"),
+                            Text(room.description),
+                            const Icon(Icons.room)
                           );
                         },
                       ),
